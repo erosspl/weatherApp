@@ -86,7 +86,7 @@ function forecast(response) {
 		let tempCelMin = (response.list[i].main.temp_min - 273.15).toFixed(2);
 		let prognosis = response.list[i].weather[0].description;
 		if (i%4 === 0){
-			$('#footer').append('<div><ul><li>'+ 'Date: ' + date +'</li><li>'+ 'Temperature-max: ' + tempCelMax+'℃' +'</li><li>'+ 'Temperature-min: ' + tempCelMin+'℃' +'</li><li>'+ 'Prognosis: ' + prognosis +'</li></ul></div>');
+			$('#footer').append('<div><ul><li>' + 'Date: ' + date + '</li><li>' + 'Temperature-max: ' + tempCelMax+'℃' + '</li><li>' + 'Temperature-min: ' + tempCelMin + '℃' + '</li><li>' + 'Prognosis: ' + prognosis + '</li></ul></div>');
 		}	
 	}
 }
