@@ -78,7 +78,7 @@ function weatherCheck(actWeather, resp) {
 }
 
 function forecast(response) {
-	$('#footer h2, #footer ul').remove();
+	$('#footer h2, #footer div').remove();
 	$('#footer').append('<h2>Simple 5 days forecast</h2>');
 	for (var i = 0; i < response.list.length; i++) {
 		let date = response.list[i].dt_txt;
