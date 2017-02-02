@@ -1,5 +1,5 @@
-const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
-const url5days = 'https://api.openweathermap.org/data/2.5/forecast?q=';
+const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const url5days = 'http://api.openweathermap.org/data/2.5/forecast?q=';
 const apiKey = '&APPID=d49fb668871e2911b9846d2dba459b7c';
 const cityInfo = $('#city');
 
