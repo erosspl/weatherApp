@@ -1,5 +1,6 @@
 const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const url5days = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+const urlLoc = 'http://api.openweathermap.org/data/2.5/weather?'
 const apiKey = '&APPID=d49fb668871e2911b9846d2dba459b7c';
 const cityInfo = $('#city');
 
@@ -9,16 +10,33 @@ function chooseCity() {
 		cityName = 'Warsaw'
 	};
 	$.ajax({
-		url: `${url} ${cityName} ${apiKey}`,
+		url: `${url}${cityName}${apiKey}`,
 		method: 'GET',
 		success: showWeather
 	});
 	$.ajax({
-		url: `${url5days} ${cityName} ${apiKey}`,
+		url: `${url5days}${cityName}${apiKey}`,
 		method: 'GET',
 		success: forecast
 	})
 };
+
+$('#location').click(function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        return;
+    }
+})
+function showPosition(position) {
+    let lat = `lat=${position.coords.latitude}`;
+    let lon = `lon=${position.coords.longitude}`;
+    $.ajax({
+	url: `${urlLoc}${lat}&${lon}${apiKey}`,
+	method: 'GET',
+	success: showWeather
+	});
+}
 
 function showWeather(resp) {
 	let tempCel = (resp.main.temp - 273.15).toFixed(2);
@@ -86,7 +104,7 @@ function forecast(response) {
 		let tempCelMin = (response.list[i].main.temp_min - 273.15).toFixed(2);
 		let prognosis = response.list[i].weather[0].description;
 		if (i%4 === 0){
-			$('#footer').append('<div><ul><li>' + 'Date: ' + date + '</li><li>' + 'Temperature-max: ' + tempCelMax+'℃' + '</li><li>' + 'Temperature-min: ' + tempCelMin + '℃' + '</li><li>' + 'Prognosis: ' + prognosis + '</li></ul></div>');
+			$('#footer').append('<div><ul><li>' + '<i class="fa fa-calendar" aria-hidden="true" title="Date"></i> ' + date + '</li><li>' + '<i class="wi wi-thermometer" title="temperature-max"></i> ' + tempCelMax+'℃' + '</li><li>' + '<i class="wi wi-thermometer-exterior" title="temperature-min"></i> ' + tempCelMin + '℃' + '</li><li>' + 'Prognosis: ' + prognosis + '</li></ul></div>');
 		}	
 	}
 }
