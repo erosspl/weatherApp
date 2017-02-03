@@ -312,6 +312,11 @@ li {
   list-style: none;
 }
 
+ul {
+  padding: 0;
+  margin: 20px;
+}
+
 .lg {
   color: white;
   font-size: 80px;
@@ -319,6 +324,9 @@ li {
 
 #footer {
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
@@ -329,4 +337,9 @@ button {
 
 button, input {
   border-radius: 5px;
+}
+
+h2 {
+  width: 100%;
+  margin: 0 auto;
 }
