@@ -37,7 +37,7 @@ function showPosition(position) {
 		method: 'GET',
 		success: showWeather
 	});
-		$.ajax({
+	$.ajax({
 		url: `${urlLoc5days}${lat}&${lon}${apiKey}`,
 		method: 'GET',
 		success: forecast

@@ -6,9 +6,7 @@ html *:before,
 html *:after { box-sizing: inherit; }
 
 body {
-  max-width: 42em;
-  padding: 2em;
-  margin: 0 auto;
+  margin: 0;
   color: #161616;
   font-family: 'Roboto', sans-serif;
   text-align: center;
@@ -327,6 +325,8 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100vw;
+  flex-direction: row;
 }
 
 button {
