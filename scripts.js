@@ -1,6 +1,7 @@
 const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const url5days = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-const urlLoc = 'http://api.openweathermap.org/data/2.5/weather?'
+const urlLoc = 'http://api.openweathermap.org/data/2.5/weather?';
+const urlLoc5days = 'http://api.openweathermap.org/data/2.5/forecast?';
 const apiKey = '&APPID=d49fb668871e2911b9846d2dba459b7c';
 const cityInfo = $('#city');
 
@@ -32,10 +33,15 @@ function showPosition(position) {
     let lat = `lat=${position.coords.latitude}`;
     let lon = `lon=${position.coords.longitude}`;
     $.ajax({
-	url: `${urlLoc}${lat}&${lon}${apiKey}`,
-	method: 'GET',
-	success: showWeather
+		url: `${urlLoc}${lat}&${lon}${apiKey}`,
+		method: 'GET',
+		success: showWeather
 	});
+		$.ajax({
+		url: `${urlLoc5days}${lat}&${lon}${apiKey}`,
+		method: 'GET',
+		success: forecast
+	})
 }
 
 function showWeather(resp) {
