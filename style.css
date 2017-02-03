@@ -320,3 +320,13 @@ li {
 #footer {
   color: white;
 }
+
+button {
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+button, input {
+  border-radius: 5px;
+}
